@@ -1,0 +1,32 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: test0,test1
+      test0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://127.0.0.1:3306/schema_test0
+        username: root
+        password: 123456
+      test1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://127.0.0.1:3307/schema_test1
+        username: root
+        password: 123456
+    sharding:
+      default-database-strategy:
+        inline:
+          sharding-column: user_id
+          algorithm-expression: test$->{user_id % 2}
+      tables:
+        t_order:
+          actual-data-nodes: test$->{0..1}.t_order$->{0..1}
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: t_order$->{id % 2}
+    props:
+      sql:
+        show:
+          true
+
+

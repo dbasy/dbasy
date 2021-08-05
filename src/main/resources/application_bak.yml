@@ -1,0 +1,66 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  shardingsphere:
+    datasource:
+      #配置库的名字，随意
+      names: ds0,ds1
+      #配置库的数据源信息
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/schema_test0?useUnicode=true
+        username: root
+        password: 123456
+      #配置库的数据源信息
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3307/schema_test1?useUnicode=true
+        username: root
+        password: 123456
+    rules:
+      sharding:
+        default-database-strategy:
+          inline:
+            sharding-column: user_id
+            algorithm-expression: ds$->{user_id % 2}
+        tables:
+          test_tbl:
+            #配置物理表规则
+            actual-data-nodes: ds$->{0..1}.test_tbl$->{0..1}
+            table-strategy:
+              inline:
+                sharding-column: user_id
+                algorithm-expression: test_tbl$->{user_id % 2}
+#            #配置分库策略
+#            database-strategy:
+#              standard:
+#                sharding-column: user_id
+#                sharding-algorithm-name: database_inline
+#              #配置分表策略
+#            table-strategy:
+#              standard:
+#                sharding-column: id
+#                sharding-algorithm-name: table-inline
+        #配置分片算法
+#        sharding-algorithms:
+#          database-inline:
+#            type: INLINE
+#            props:
+#              algorithm-expression: ds$->{user_id % 2}
+#          table-inline:
+#            type: INLINE
+#            props:
+#              algorithm-expression: test_tbl$->{id % 2}
+
+    props:
+      sql-show: true
+
+
+
+
+
+
