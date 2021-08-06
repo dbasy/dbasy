@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  * @Date: 2021/8/5 12:12
  */
 @Mapper
-@Component
 public interface OrderMapper extends BaseMapper<Order> {
 
 }

@@ -1,0 +1,1 @@
+{"id":"127.0.0.1.tm162818601616000001","wasCommitted":false,"participants":[{"uri":"127.0.0.1.tm1","state":"TERMINATED","expires":1628186316962,"resourceName":"resource-1-test0"},{"uri":"127.0.0.1.tm2","state":"TERMINATED","expires":1628186316962,"resourceName":"resource-2-test1"}]}

@@ -4,14 +4,22 @@ spring:
       names: test0,test1
       test0:
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://127.0.0.1:3306/schema_test0
+        url: jdbc:mysql://127.0.0.1:3306/schema_test0?serverTimezone=UTC&useSSL=false
         username: root
         password: 123456
+        connectionTimeoutMilliseconds: 30000
+        idleTimeoutMilliseconds: 60000
+        maxLifetimeMilliseconds: 1800000
+        maxPoolSize: 10
       test1:
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://127.0.0.1:3307/schema_test1
+        url: jdbc:mysql://127.0.0.1:3307/schema_test1?serverTimezone=UTC&useSSL=false
         username: root
         password: 123456
+        connectionTimeoutMilliseconds: 30000
+        idleTimeoutMilliseconds: 60000
+        maxLifetimeMilliseconds: 1800000
+        maxPoolSize: 10
     sharding:
       default-database-strategy:
         inline:
