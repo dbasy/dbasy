@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2021/8/5 14:43
  */
 @Configuration
-@MapperScan("com.cmx.dbasy.sharding.mapper")
+@MapperScan("com.cmx.dbasy.sharding.**.mapper")
 public class MybatisPlusConfigration {
 
     // 最新版

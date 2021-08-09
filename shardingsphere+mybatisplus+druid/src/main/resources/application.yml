@@ -32,6 +32,18 @@ spring:
             inline:
               sharding-column: id
               algorithm-expression: t_order$->{id % 2}
+        t_order_item:
+          actual-data-nodes: test$->{0..1}.t_order_item$->{0..1}
+          table-strategy:
+            inline:
+              sharding-column: order_id
+              algorithm-expression: t_order_item$->{order_id % 2}
+      bindingTables:
+        - t_order,t_order_item
+      broadcastTables :
+        - t_dict
+
+
     props:
       sql:
         show:

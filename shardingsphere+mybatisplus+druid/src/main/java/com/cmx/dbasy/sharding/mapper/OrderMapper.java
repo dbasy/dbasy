@@ -12,4 +12,5 @@ import org.springframework.stereotype.Component;
 @Mapper
 public interface OrderMapper extends BaseMapper<Order> {
 
+
 }

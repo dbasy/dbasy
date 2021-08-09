@@ -21,10 +21,20 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> implements ISe
 
     @Transactional
     @ShardingTransactionType(value = TransactionType.XA)
-    public void insertBoth(Order order1, Order order2) {
+    public void insertBothXA(Order order1, Order order2) {
         orderMapper.insert(order1);
         orderMapper.insert(order2);
 
 
     }
+
+    @Transactional
+    @ShardingTransactionType(value = TransactionType.BASE)
+    public void insertBothBase(Order order1, Order order2) {
+        orderMapper.insert(order1);
+        orderMapper.insert(order2);
+
+    }
+
+
 }
