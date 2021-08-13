@@ -55,7 +55,7 @@ public class ShardingBindingTableTests {
     @Test
     public void testBindingTableJoin() {
         //模拟查询2个用户，在不同数据节点查询
-        orderItemService.selectOrderAndItem(new Long[]{1423561765295300610L, 1423561764427079682L});
+        orderItemService.selectOrderAndItem(new Long[]{1425019288586063874L, 1425019291392053250L});
 
     }
 }

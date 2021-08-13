@@ -1,14 +1,13 @@
-package com.cmx.dbasy;
+package com.cmx.dbasy.log4j;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DbasyApplicationTests {
+class Log4jApplicationTests {
 
     @Test
     void contextLoads() {
-
     }
 
 }

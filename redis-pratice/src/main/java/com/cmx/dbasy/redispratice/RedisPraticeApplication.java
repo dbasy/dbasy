@@ -1,14 +1,13 @@
-package com.cmx.dbasy;
-
+package com.cmx.dbasy.redispratice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DbasyApplication {
+public class RedisPraticeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DbasyApplication.class, args);
+        SpringApplication.run(RedisPraticeApplication.class, args);
     }
 
 }
